@@ -1,0 +1,239 @@
+\documentclass[final, xcolor=svgnames]{beamer}
+\mode<presentation>
+\usepackage[orientation=portrait,size=a1, scale=1.1]{beamerposter}
+
+%\usepackage{times} % Use the times font
+\usepackage{helvet} % Uncomment to use the Palatino font
+\usepackage{caption}
+\graphicspath{{figures/}} % Location of the graphics files
+\usepackage{booktabs} % Top and bottom rules for table
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage{wrapfig} % Allows wrapping text around tables and figures'
+%----------------------------------------------------------------------------------------
+%  Packages addaded by Erik Marsja to fit the UmU-style and to use APA 6th Ed. Citations 
+%----------------------------------------------------------------------------------------
+
+\usepackage{apacite} %To cite with APA 6ed Style
+\usepackage{natbib}
+\usepackage{scrextend}
+\usepackage{tabulary}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{epstopdf}
+%----------------------------------------------------------------------------------------
+%  Packages for creating text and adding links (hyperref). 
+%  Can be deleted when creating a "real" poster.
+%----------------------------------------------------------------------------------------
+
+\usepackage{blindtext}
+\usetheme{umu}
+%----------------------------------------------------------------------------------------
+%  Document starts after \begin 
+%----------------------------------------------------------------------------------------
+\begin{document}
+\setkeys{Gin}{width=1\textwidth}
+\SweaveOpts{concordance=TRUE}
+%----------------------------------------------------------------------------------------
+%	POSTER HEADER 
+%----------------------------------------------------------------------------------------
+
+% The header is divided into two boxes:
+% 
+
+\begin{frame}[fragile]
+\vskip1.8em
+\begin{minipage}[t]{\linewidth}
+\begin{addmargin}[3em]{3em}%
+\Huge\color{White} \textbf{Domain-generality or domain-specificity of the short-term memory: insights from a multisensory distraction paradigm}\\[0.5cm]
+\Large \textbf{Erik Marsja$^{a}$, John E. Marsh$^{b,c}$, Patrik Hansson$^{a}$, Gregory Neely$^{a}$, \& Jessica K. Ljungberg$^{a,d}$}\\[0.5cm] % Author(s)
+\normalsize $^{a}$Department of Psychology, Ume\aa{} University, Sweden. $^{b}$Department of Building, Energy and Environmental Engineering, University of G\"a{}vle, Sweden.\\[0.2cm] $^{c}$School of Psychology, University of Central Lancashire, Preston, UK. $^{d}$School of Psychology, Cardiff University, UK.\\[0.6cm]
+\small \textbf{Contact:} Erik Marsja (erik.marsja@umu.se or erik@marsja.se)
+\end{addmargin}
+\end{minipage}
+\vskip1.5em
+%----------------------------------------------------------------------------------------
+\begin{columns}[T]
+  \begin{column}[t]{0.46\textwidth}
+  %----------------------------------------------------------------------------------------
+  %	INTRODUCTION
+  %----------------------------------------------------------------------------------------
+  \begin{block}{Introduction}
+Unexpected changes (e.g., deviant stimuli) in a repetitive stream of standard stimuli are known to prolong responses in visual categorization tasks \citep[e.g.,][]{Parmentier2014rev} and disrupt short-term memory \citep[e.g.,][]{Hughes2007}. While this deviation effect has been studied extensively using sounds, far less focus has been on unexpected changes in irrelevant bimodal stimuli.  A further issue is whether a spatial change in either the tactile, auditory or in both modalities simultaneously, affects verbal and spatial short-term memory similarly. 
+\end{block}
+  %----------------------------------------------------------------------------------------
+  %	OBJECTIVES
+  %----------------------------------------------------------------------------------------
+  \begin{block}{Aim}
+  Examine whether the short-term memory (STM) is domain-specific by using deviant spatial changes in bimodal (auditory and vibrotactile) and uni-modal (vibrotactile) to-be-ignored (TBI) sequences.
+  \end{block}
+  %----------------------------------------------------------------------------------------
+  %	MATERIALS AND METHODS
+  %----------------------------------------------------------------------------------------
+  \begin{block}{Methods}
+   Across two experiments subjects performed (47 and 50, in Experiment 1 and 2, respectively) verbal and spatial STM tasks while being exposed to TBI sequences.\\
+
+  \begin{figure}
+    \includegraphics[width=0.8\columnwidth, scale=0.8]{Schematic2.png}
+    \caption{A schematic overview of the tasks and distractor streams used in the two experiments.}
+    \end{figure}
+    In the verbal task, 7 digits were taken randomly without replacement from the digit set 1-9. In the spatial task, 7 items (dots) were taken randomly from a 5 x 5 matrix.\\
+The vibrotactile sequences were comprised of 10 repetitions of a vibration of 240Hz, and the amplitude of 1.8g (peak-to-peak), delivered using coin vibration motors. 
+The auditory sequences were comprised of 10 repetitions of a 600Hz tone, delivered through sound attenuated headphones. See Figure 1 for a schematic overview of the experiments.\\
+In Experiment 1, TBI sequence consisted of both auditory and vibrotactile sequences (simultaneously presented) whereas only vibrations were used in Experiment 2. The TBI sequences changed side of the body on 20\% of the trials (spatial deviant trials). The task was to remember the order of the TBR items.
+  \end{block}
+  
+  %----------------------------------------------------------------------------------------
+  %	RESULTS
+  %----------------------------------------------------------------------------------------
+  \begin{block}{Results \& Discussion}
+  The proportion of correctly recalled items was analyzed using a 2 (Task: Spatial, Verbal) x 2 (Trialtype: Standard, Deviant).\\
+  \textit{Experiment 1.} Subjects performance were significantly worse in the spatial task. Performance in the spatial deviant trials was worse compared to standard trials (See Table 1).
+  
+<<OmnibusAOV1 cache=TRUE, echo=FALSE, warning=FALSE, message=FALSE, results=tex>>=
+load("Data/data_poster.Rda")
+require(afex)
+require(xtable)
+library(plyr)
+names(data.poster)[names(data.poster)=="TrialType"] <- "Trialtype"
+source('r-scripts/omega_squared.R')
+exp1 <- data.poster[data.poster$Exp == 1, ]
+df.aovmod1 <- aov_ez("Sub_id", "PropRecalled", exp1 , within=c("Task", "Trialtype"),
+               anova_table = list(correction= "none", es = "pes"), factorize=FALSE)
+colns <- c('Effect', 'DF', '\\textit{MSE}', '\\textit{F}', '$\\omega_{p}^{2}$', '\\textit{p}')
+table1 <- nice(df.aovmod1)
+names(table1) <- colns
+aovtab <- omegaSquared(table1)
+tabbi <- print.xtable(xtable(aovtab, caption="Results Experiment 1"),  include.rownames = FALSE, caption.placement = "top", print.results = FALSE, sanitize.text.function = function(x) x)
+tabbi <- sub("\\begin{tabular}",
+             "\\colorbox{white}{\n\\begin{tabular}",
+            tabbi, fixed=TRUE)
+tabbi <- sub("\\end{tabular}",
+             "\\end{tabular}}",
+            tabbi, fixed=TRUE)
+
+cat(tabbi)
+@
+To further examine the impact of the spatial deviant, one-way ANOVAs for each tasks were conducted. It revealed that the spatial deviant affected both tasks negatively (see Figure 1), meaning that a spatial change can distract both spatial and verbal STM. 
+  \end{block}
+  \end{column}
+  \begin{column}[t]{0.46\textwidth}
+  \begin{block}{}
+  
+\textit{Experiment 2.} Performance was significantly worse in the spatial task but there was no evidence that the spatial change (i.e., spatial deviant) in the vibrotactile TBI sequence affected performance. See Table 2.
+
+<<OmnibusAOV2 cache=TRUE, echo=FALSE, warning=FALSE, message=FALSE, results=tex>>=
+exp2 <- data.poster[data.poster$Exp == 2, ]
+colns <- c('Effect', 'DF', 'MSE', 'F', 'ges', '\\textit{p}')
+df.aovmod2 <- aov_ez("Sub_id", "PropRecalled", exp2 , within=c("Task", "Trialtype"),
+               args.return = list(correction= "none"), factorize=FALSE)
+table2 <- nice(df.aovmod2)
+colns <- c('Effect', 'DF', '\\textit{MSE}', '\\textit{F}', '$\\omega_{p}^{2}$', '\\textit{p}')
+table2 <- nice(df.aovmod2)
+names(table2) <- colns
+aovtab <- omegaSquared(table2)
+tabbi <- print.xtable(xtable(aovtab, caption="Results Experiment 2"),  include.rownames = FALSE, caption.placement = "top", print.results = FALSE, sanitize.text.function = function(x) x)
+tabbi <- sub("\\begin{tabular}",
+             "\\colorbox{white}{\n\\begin{tabular}",
+            tabbi, fixed=TRUE)
+tabbi <- sub("\\end{tabular}",
+             "\\end{tabular}}",
+            tabbi, fixed=TRUE)
+
+cat(tabbi)
+@
+\begin{figure}[t!]
+<<Figure2 cache=TRUE, echo=FALSE, warning=FALSE, message=FALSE, fig=TRUE>>=
+source('r-scripts/within.R')
+
+# Experiment 1
+plot.dat1 <- summarySEwithin(data = data.poster[data.poster$Exp == 1,], "PropRecalled", withinvars = c("Task", "Trialtype"))
+
+plot.dat1$astr <- c("p = .03", "p <", ".001", "p = .008")
+plot.dat1$x <- c(1.5, 2.50, .51, 1.5)
+plot.dat1$y <- c(plot.dat1[ which( plot.dat1$Task == 'spatial' & plot.dat1$Trialtype  == 'Deviant') , ]$PropRecalled
+                + plot.dat1[ which( plot.dat1$Task == 'spatial' & plot.dat1$Trialtype  == 'Deviant') , ]$ci +.05,
+                plot.dat1[ which( plot.dat1$Task == 'verbal' & plot.dat1$Trialtype  == 'Deviant') , ]$PropRecalled
+                + plot.dat1[ which( plot.dat1$Task == 'verbal' & plot.dat1$Trialtype  == 'Deviant') , ]$ci,
+                # Verbal task
+                plot.dat1[ which( plot.dat1$Task == 'verbal' & plot.dat1$Trialtype  == 'Deviant') , ]$PropRecalled
+                + plot.dat1[ which( plot.dat1$Task == 'verbal' & plot.dat1$Trialtype  == 'Deviant') , ]$ci,
+                plot.dat1[ which( plot.dat1$Task == 'verbal' & plot.dat1$Trialtype  == 'Standard') , ]$PropRecalled
+                + plot.dat1[ which( plot.dat1$Task == 'verbal' & plot.dat1$Trialtype  == 'Standard') , ]$ci  + .05)
+plot.dat1$Exp <- "Experiment 1"
+# Experiment 2
+plot.dat2 <- summarySEwithin(data = data.poster[data.poster$Exp == 2,], "PropRecalled", withinvars = c("Task", "Trialtype"))
+
+plot.dat2$astr <- c("p = .71", "p <", ".001", "p = .32")
+plot.dat2$x <- c(1.5, 2.50, .51, 1.5)
+plot.dat2$y <- c(plot.dat2[ which( plot.dat2$Task == 'spatial' & plot.dat2$Trialtype  == 'Deviant') , ]$PropRecalled
+                + plot.dat2[ which( plot.dat2$Task == 'spatial' & plot.dat2$Trialtype  == 'Deviant') , ]$ci +.05,
+                plot.dat2[ which( plot.dat2$Task == 'verbal' & plot.dat2$Trialtype  == 'Deviant') , ]$PropRecalled
+                + plot.dat2[ which( plot.dat2$Task == 'verbal' & plot.dat2$Trialtype  == 'Deviant') , ]$ci,
+                # Verbal task
+                plot.dat2[ which( plot.dat2$Task == 'verbal' & plot.dat2$Trialtype  == 'Deviant') , ]$PropRecalled
+                + plot.dat2[ which( plot.dat2$Task == 'verbal' & plot.dat2$Trialtype  == 'Deviant') , ]$ci,
+                plot.dat2[ which( plot.dat2$Task == 'verbal' & plot.dat2$Trialtype  == 'Standard') , ]$PropRecalled
+                + plot.dat2[ which( plot.dat2$Task == 'verbal' & plot.dat2$Trialtype  == 'Standard') , ]$ci  + .05)
+plot.dat2$Exp <- "Experiment 2"
+plot.dat <- rbind(plot.dat1, plot.dat2)
+require(ggplot2)
+acc.plot <-ggplot(plot.dat, aes(x=Trialtype, y=PropRecalled, fill=Trialtype)) + facet_wrap(Exp~Task, ncol=2, labeller = label_wrap_gen(multi_line=FALSE)) +
+  geom_bar(stat="identity") + geom_errorbar(aes(ymin= PropRecalled - ci, ymax=PropRecalled + ci), width=.1) +
+  theme_bw() +
+  scale_fill_grey(labels = c("Standard", "Deviant"), breaks = c("Standard", "Deviant")) +
+  coord_cartesian(ylim=c(.3,.9)) +
+  ylab("Proportion of correct recalled items") +
+  theme(plot.background = element_blank()
+        ,panel.grid.major = element_blank()
+        ,panel.grid.minor = element_blank()
+        ,text = element_text(size=14)
+        ,strip.background = element_blank()
+        ,legend.position=c(.1,.8)
+        #,legend.title=element_text("Trial type")
+        ,legend.key = element_blank()
+        ,axis.text.x=element_blank()
+        , axis.title.x=element_blank()) +
+  theme(panel.border = element_blank()) +
+  theme(axis.line.x = element_line(color="black", size = .9),
+        axis.line.y = element_line(color="black", size = .9))
+
+acc.plot + geom_text(aes(y = y,  x= x,width = 2, label=astr), data = plot.dat) +theme(panel.spacing.x=unit(0, "lines"),panel.spacing.y=unit(.5, "lines"))
+acc.plot
+@
+\caption{Proportion of correct recalled items across tasks and trialtypes in the two experiments.}
+
+\end{figure}
+\end{block}
+  \begin{block}{Conclusions}
+  
+  \begin{itemize}
+  \item An unexpected spatial change in a bimodal TBI sequence affects both verbal and spatial short-term memory whereas a spatial change in a vibrotactile TBI sequence does not. 
+  \item Our results from Experiment 1 (see also \citealt {Vachon2016}) questions the assumption of domain-specificity but is in line with Cowan's model (e.g., 1995) and multisensory perspectives \citep[e.g.,][]{Quak2015}.
+  \item However, our results from Experiment 2 may be troublesome for multisensory perspectives of STM/WM. 
+  \end{itemize}
+  
+
+  \end{block}
+  
+
+  %----------------------------------------------------------------------------------------
+  %	REFERENCES
+  %----------------------------------------------------------------------------------------
+  \begin{block}{References}
+  \nocite{*} % Print all references regardless of whether they were cited in the poster or not
+  \bibliographystyle{apacite} % Apa referencing. Use biblatex-apa when using package hyperref
+  \bibliography{poster} 
+  
+  \end{block}
+  \end{column}
+\end{columns}
+\vskip-.5em
+
+\begin{minipage}[t]{\linewidth}
+\begin{addmargin}[2em]{3em}%
+\tiny LaTeX files, r-scripts, data, and other additional information is available at https://github.com/marsja/poster-stm-distraction
+\end{addmargin}
+\end{minipage}
+\end{frame}
+\end{document}

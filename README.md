@@ -1,6 +1,8 @@
 # Repository for the poster presented at *rethinking the senses* spring school 2017
 
-This repository holds the LaTeX (beamer) file, along with the data for the analysis, creating the poster. 
+This repository holds the LaTeX (beamer) file, along with the data for the analysis, creating the poster ([Poster: Marsja_-_SpringSchool_VT17.pdf](Marsja_-_SpringSchool_VT17)).
+
+
 
 ## Domain-generality or domain-specificity of the short-term memory: insights from a multisensory distraction paradigm*
 
@@ -65,7 +67,7 @@ compared to standard trials (See Table 1).
 
 <table border=1>
 <caption align="top"> Results Experiment 1 </caption>
-<tr> <th> Effect </th> <th> DF </th> <th> *MSE* </th> <th> *F* </th> <th> partial omega squared </th> <th> *p* </th>  </tr>
+<tr> <th> Effect </th> <th> DF </th> <th> MSE </th> <th> F </th> <th> partial omega squared </th> <th> p-value </th>  </tr>
   <tr> <td> Task </td> <td> 1, 46 </td> <td> 0.03 </td> <td> 165.00 *** </td> <td> .78 </td> <td> <.0001 </td> </tr>
   <tr> <td> Trialtype </td> <td> 1, 46 </td> <td> 0.00 </td> <td> 13.19 *** </td> <td> .22 </td> <td> .0007 </td> </tr>
   <tr> <td> Task:Trialtype </td> <td> 1, 46 </td> <td> 0.00 </td> <td> 0.39 </td> <td> -0.013 </td> <td> .54 </td> </tr>
@@ -83,7 +85,7 @@ Table 2.
 
 <table border=1>
 <caption align="top"> Results Experiment 2 </caption>
-<tr> <th> Effect </th> <th> DF </th> <th> *MSE* </th> <th> *F* </th> <th> partial omega squared </th> <th> *p* </th>  </tr>
+<tr> <th> Effect </th> <th> DF </th> <th> MSE </th> <th> F </th> <th> partial omega squared </th> <th> p-value </th>  </tr>
   <tr> <td> Task </td> <td> 1, 49 </td> <td> 0.02 </td> <td> 169.37 *** </td> <td> .50 </td> <td> <.0001 </td> </tr>
   <tr> <td> Trialtype </td> <td> 1, 49 </td> <td> 0.00 </td> <td> 0.68 </td> <td> .0005 </td> <td> .41 </td> </tr>
   <tr> <td> Task:Trialtype </td> <td> 1, 49 </td> <td> 0.00 </td> <td> 0.11 </td> <td> -0.018 </td> <td> .74 </td> </tr>
