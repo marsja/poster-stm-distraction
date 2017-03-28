@@ -2,8 +2,7 @@
 \mode<presentation>
 \usepackage[orientation=portrait,size=a1, scale=1.1]{beamerposter}
 
-%\usepackage{times} % Use the times font
-\usepackage{helvet} % Uncomment to use the Palatino font
+\usepackage{helvet} 
 \usepackage{caption}
 \graphicspath{{figures/}} % Location of the graphics files
 \usepackage{booktabs} % Top and bottom rules for table
@@ -22,11 +21,8 @@
 \usepackage{lmodern}
 \usepackage{epstopdf}
 %----------------------------------------------------------------------------------------
-%  Packages for creating text and adding links (hyperref). 
-%  Can be deleted when creating a "real" poster.
+%  Load the Umea University theme
 %----------------------------------------------------------------------------------------
-
-\usepackage{blindtext}
 \usetheme{umu}
 %----------------------------------------------------------------------------------------
 %  Document starts after \begin 
@@ -39,7 +35,6 @@
 %----------------------------------------------------------------------------------------
 
 % The header is divided into two boxes:
-% 
 
 \begin{frame}[fragile]
 \vskip1.8em
