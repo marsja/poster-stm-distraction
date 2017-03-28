@@ -4,28 +4,25 @@ bibliography:
 nocite: '[@*]'
 ...
 
-\[fragile\] 1.8em
 
-\[t\]
-
-\[3em\]<span>3em</span> **Domain-generality or domain-specificity of the
+# **Domain-generality or domain-specificity of the
 short-term memory: insights from a multisensory distraction paradigm**\
-**Erik Marsja$^{a}$, John E. Marsh$^{b,c}$, Patrik Hansson$^{a}$,
-Gregory Neely$^{a}$, & Jessica K. Ljungberg$^{a,d}$**\
+
+Erik Marsja$^{a}$, John E. Marsh$^{b,c}$, Patrik Hansson$^{a}$,
+Gregory Neely$^{a}$, & Jessica K. Ljungberg$^{a,d}$
+
 $^{a}$Department of Psychology, Umeå University, Sweden.
 $^{b}$Department of Building, Energy and Environmental Engineering,
 University of Gävle, Sweden.\
 $^{c}$School of Psychology, University of Central Lancashire, Preston,
-UK. $^{d}$School of Psychology, Cardiff University, UK.\
-**Contact:** Erik Marsja (erik.marsja@umu.se or erik@marsja.se)
+UK. $^{d}$School of Psychology, Cardiff University, UK.
 
-1.5em
+**Contact:** Erik Marsja (erik.marsja [at] umu.se or erik [at] marsja.se)
 
-\[T\]
 
-\[t\]<span>0.46</span>
+## Introduction 
 
-<span>Introduction</span> Unexpected changes (e.g., deviant stimuli) in
+Unexpected changes (e.g., deviant stimuli) in
 a repetitive stream of standard stimuli are known to prolong responses
 in visual categorization tasks [e.g., @Parmentier2014rev] and disrupt
 short-term memory [e.g., @Hughes2007]. While this deviation effect has
@@ -35,17 +32,19 @@ whether a spatial change in either the tactile, auditory or in both
 modalities simultaneously, affects verbal and spatial short-term memory
 similarly.
 
-<span>Aim</span> Examine whether the short-term memory (STM) is
+## Aim
+
+Examine whether the short-term memory (STM) is
 domain-specific by using deviant spatial changes in bimodal (auditory
 and vibrotactile) and uni-modal (vibrotactile) to-be-ignored (TBI)
 sequences.
 
-<span>Methods</span> Across two experiments subjects performed (47 and
-50, in Experiment 1 and 2, respectively) verbal and spatial STM tasks
-while being exposed to TBI sequences.\
+
+## Methods 
+Across two experiments subjects performed (47 and 50, in Experiment 1 and 2, respectively) verbal and spatial STM tasks while being exposed to TBI sequences.\
 
 ![A schematic overview of the tasks and distractor streams used in the
-two experiments.](Schematic2.png){width="0.8\columnwidth"}
+two experiments.](figures/Schematic2.png)
 
 In the verbal task, 7 digits were taken randomly without replacement
 from the digit set 1-9. In the spatial task, 7 items (dots) were taken
@@ -61,9 +60,10 @@ vibrations were used in Experiment 2. The TBI sequences changed side of
 the body on 20% of the trials (spatial deviant trials). The task was to
 remember the order of the TBR items.
 
-<span>Results & Discussion</span> The proportion of correctly recalled
-items was analyzed using a 2 (Task: Spatial, Verbal) x 2 (Trialtype:
-Standard, Deviant).\
+## Results & Discussion
+The proportion of correctly recalled items was analyzed using a 2 (Task: Spatial, Verbal) x 2 (Trialtype:
+Standard, Deviant).
+
 *Experiment 1.* Subjects performance were significantly worse in the
 spatial task. Performance in the spatial deviant trials was worse
 compared to standard trials (See Table 1).
@@ -73,17 +73,13 @@ each tasks were conducted. It revealed that the spatial deviant affected
 both tasks negatively (see Figure 1), meaning that a spatial change can
 distract both spatial and verbal STM.
 
-\[t\]<span>0.46</span>
-
 *Experiment 2.* Performance was significantly worse in the spatial task
 but there was no evidence that the spatial change (i.e., spatial
 deviant) in the vibrotactile TBI sequence affected performance. See
 Table 2.
 
-![Proportion of correct recalled items across tasks and trialtypes in
-the two experiments.](Marsja_-_SpringSchool_VT16-003)
 
-<span>Conclusions</span>
+##Conclusions
 
 -   An unexpected spatial change in a bimodal TBI sequence affects both
     verbal and spatial short-term memory whereas a spatial change in a
@@ -98,10 +94,4 @@ the two experiments.](Marsja_-_SpringSchool_VT16-003)
 
 <span>References</span>
 
--.5em
 
-\[t\]
-
-\[2em\]<span>3em</span>LaTeX files, r-scripts, data, and other
-additional information is available at
-https://github.com/marsja/poster-stm-distraction
