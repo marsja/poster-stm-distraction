@@ -1,6 +1,7 @@
 # Repository for the poster presented at *rethinking the senses* spring school 2017
 
-This repository holds the LaTeX (beamer) file, along with the data for the analysis, creating the poster ([Poster: Marsja_-_SpringSchool_VT17.pdf](Marsja_-_SpringSchool_VT17)).
+This repository holds the LaTeX (beamer) file, along with the data for the analysis, creating the poster ([pdf of the presented poster: Marsja_-_SpringSchool_VT17.pdf](Marsja_-_SpringSchool_VT17.pdf)). In the end of the README file an extended version of the poster can also be found.
+
 
 
 
